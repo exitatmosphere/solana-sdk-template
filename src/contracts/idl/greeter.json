@@ -1,0 +1,105 @@
+{
+  "address": "6F4B6DAf1K5kFY4JjKcDTfyQbGTK4yeTtbMEiXeAjZBj",
+  "metadata": {
+    "name": "greeter",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "set_greeting",
+      "discriminator": [
+        63,
+        232,
+        53,
+        234,
+        129,
+        147,
+        78,
+        101
+      ],
+      "accounts": [
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "greeting_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  114,
+                  101,
+                  101,
+                  116,
+                  105,
+                  110,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "greeting",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "GreetingData",
+      "discriminator": [
+        89,
+        205,
+        110,
+        102,
+        218,
+        222,
+        15,
+        130
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "GreeterZeroLengthGreeting",
+      "msg": "Greeting string can't be empty"
+    }
+  ],
+  "types": [
+    {
+      "name": "GreetingData",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "greeting",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "constants": [
+    {
+      "name": "GREETING_ACCOUNT_SEED_PHRASE",
+      "type": "bytes",
+      "value": "[103, 114, 101, 101, 116, 105, 110, 103]"
+    }
+  ]
+}
